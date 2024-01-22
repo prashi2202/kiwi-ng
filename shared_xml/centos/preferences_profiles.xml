@@ -1,0 +1,42 @@
+<image>
+	<profiles>
+        <profile name="Live" description="Live image of CentOS 8"/>
+        <profile name="Virtual" description="Virtual image of CentOS 8"/>
+        <profile name="Disk" description="OEM image of CentOS 8"/>
+    </profiles>
+    <preferences>
+        <version>1.3.0</version>
+        <packagemanager>dnf</packagemanager>
+        <bootsplash-theme>charge</bootsplash-theme>
+        <locale>en_US</locale>
+        <keytable>us</keytable>
+        <timezone>UTC</timezone>
+        <rpm-check-signatures>false</rpm-check-signatures>
+    </preferences>
+    <preferences profiles="Live">
+        <type image="iso" flags="overlay" firmware="uefi" hybridpersistent_filesystem="ext4" hybridpersistent="true" kernelcmdline="console=ttyS0">
+            <bootloader name="grub2" console="serial"/>
+        </type>
+    </preferences>
+    <preferences profiles="Virtual">
+        <type image="oem" primary="true" filesystem="ext4" kernelcmdline="console=ttyS0" firmware="uefi" format="qcow2">
+            <oemconfig>
+                <oem-resize>false</oem-resize>
+            </oemconfig>
+            <bootloader name="grub2" console="serial"/>
+        </type>
+    </preferences>
+    <preferences profiles="Disk">
+        <type image="oem" filesystem="ext4" installiso="true" installboot="install" firmware="uefi" kernelcmdline="console=ttyS0">
+            <bootloader name="grub2" console="serial" timeout="10"/>
+            <oemconfig>
+                <oem-systemsize>2048</oem-systemsize>
+                <oem-unattended>true</oem-unattended>
+                <oem-swap>true</oem-swap>
+                <oem-swapsize>200</oem-swapsize>
+                <oem-multipath-scan>false</oem-multipath-scan>
+            </oemconfig>
+        </type>
+    </preferences>
+</image>
+
