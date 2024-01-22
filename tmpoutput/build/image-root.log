@@ -1,0 +1,2 @@
+[ INFO    ]: 17:16:17 | Loading XML description
+[ ERROR   ]: 17:16:17 | KiwiConfigFileNotFound: no XML description found in ./trivial-build

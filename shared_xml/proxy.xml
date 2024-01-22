@@ -1,0 +1,3 @@
+<proxy>
+    <proxy>http://web-proxy.in.hpecorp.net:8080</proxy>
+</proxy>
